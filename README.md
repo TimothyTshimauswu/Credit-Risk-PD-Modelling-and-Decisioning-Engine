@@ -5,282 +5,184 @@
 <h1 align="center">Credit Risk PD Modelling and Decisioning Engine</h1>
 
 <h3 align="center">
-  Python. XGBoost. LightGBM. Optuna. SQL. Power BI. Streamlit. FastAPI. Docker. AWS.
+  XGBoost • LightGBM • Optuna Tuning • FastAPI Deployment • Streamlit Scoring • SQL Analytics • Power BI
 </h3>
 
 <p align="center">
-  A production-grade Probability of Default modelling and decisioning engine built on one million borrower records. Designed to support credit approvals, reduce losses, and strengthen portfolio performance across retail and unsecured lending environments.
+  A full end-to-end Probability of Default modelling and decisioning engine built on one million loan records. Designed for real lending environments to support credit approvals, reduce losses, and improve portfolio performance.
 </p>
 
----
 
-# 1. Business Overview
+## Project Background
 
-Retail and unsecured lending requires accurate Probability of Default (PD) models to control non-performing loans, maintain capital adequacy, and support sustainable portfolio growth.  
-This solution delivers a full credit risk modelling workflow used in banks: data engineering, risk feature creation, PD model development, challenger model validation, deployment, portfolio analytics, and early warning insights.
+Retail banking and unsecured lending rely on accurate risk models to manage non-performing loans, optimise pricing, and strengthen portfolio growth. With rising competition and tighter regulatory expectations, banks need PD models that deliver strong discrimination, operational stability, and scalable deployment.
 
----
+Industry benchmarks show that effective PD models can reduce early-stage delinquency by **10–25%**, improve approval accuracy by **15–20%**, and support more accurate Expected Credit Loss (ECL) forecasting.  
+Major lenders such as **FNB, Capitec, ABSA, and Standard Bank** depend on these systems to manage exposure, inform credit policy, and guide collections strategies.
 
-# 2. Business Problem
 
-Legacy rule-based assessments and manual credit evaluations lead to inconsistent decisions and weak risk discrimination. High-risk customers enter the book, Expected Credit Loss (ECL) rises, and collections performance declines.  
-A scalable, data-driven PD model and decisioning engine is required to improve approval accuracy, optimise pricing, and highlight high-risk exposure early.
+## 🧠 Project Overview
 
----
+This project delivers a full credit risk modelling and decisioning engine that enables:
 
-# 3. Business Value Delivered
-
-This system produces measurable outcomes aligned with banking performance metrics:
-
-- Strong uplift in identifying high-risk customers across income and product segments.  
-- Higher PD model discrimination and stability across folds.  
-- Improved approval and decline consistency under model-driven rules.  
-- Portfolio-level insights used for ECL forecasting, IFRS9 inputs, and risk committee reporting.  
-- Early warning indicators that improve collections strategy.  
-- Reduced operational risk through automated scoring and reproducible pipelines.  
-- Challenger model framework aligned with internal model risk governance.
+- 🔍 Probability of Default (PD) modelling on one million loan records  
+- ⏳ Optuna-driven hyperparameter tuning of multiple ML models  
+- 🧩 Feature engineering aligned with credit risk scorecard practices  
+- 📉 Portfolio and risk analytics using SQL  
+- 🖥️ Streamlit app for real-time customer scoring  
+- 🚀 FastAPI + Docker service for production deployment  
+- 📊 Power BI dashboards for portfolio monitoring and ECL insights  
 
 ---
 
-# 4. Project Architecture
+## 🎯 Key Objectives
 
-## Data Engineering  
-Processes one million loan-level records with robust cleaning and transformation.  
-Builds reproducible datasets for model development, risk reporting, and monitoring.
-
-## Credit Risk Analytics  
-Identifies key loss drivers, behavioural risk indicators, and segment-level exposure.  
-Supports pricing, strategy, and credit policy refinement.
-
-## Feature Engineering  
-Creates risk features aligned with PD scorecard development:
-
-- Debt-service ratios  
-- Utilisation and exposure patterns  
-- Payment behaviour and delinquency indicators  
-- Affordability and income stability metrics  
-- Temporal trends and behavioural drift variables  
-
-## Modelling and Validation  
-Models trained: Random Forest, XGBoost, LightGBM, Linear Regression baseline.  
-Optuna tuning improves AUC, precision, recall, and calibration robustness.
-
-Model selection based on:
-
-- Discriminatory power (AUC)  
-- Stability across borrower segments  
-- Performance on minority default class  
-- PD calibration behaviour  
-- Portfolio impact under approval scenarios  
-
-## Deployment  
-- Streamlit front-end scoring tool for credit analysts  
-- FastAPI service for real-time digital decisioning  
-- Docker packaging for production-grade deployment  
-- AWS hosting for scalable inference  
-
-## Reporting and Monitoring  
-SQL analysis and Power BI dashboards used for:
-
-- Monthly risk reporting  
-- PD stability monitoring  
-- Vintage and cohort tracking  
-- Exposure measurement  
-- Delinquency and loss trend analysis  
-- Collections segmentation  
+- Build a full PD model using retail loan data  
+- Engineer borrower- and behaviour-based risk features  
+- Benchmark Random Forest, XGBoost, LightGBM, and Linear Regression  
+- Use Optuna to optimise model calibration and uplift  
+- Deploy the final model into a scoring engine for business use  
+- Provide credit policy and collections teams with actionable risk insights  
 
 ---
 
-# 5. Banking Use Cases
+## 📁 Project Structure
 
-This engine aligns with how risk and lending teams operate:
-
-- Real-time loan application scoring  
-- Limit and pricing decisions based on PD  
-- Challenger model development for internal scorecards  
-- Exposure and EAD concentration analysis  
-- IFRS9 impairment input preparation  
-- High-risk customer identification  
-- Early delinquency detection and collections prioritisation  
-- Portfolio analytics for risk committees  
-
----
-
-# 6. Key Risk Metrics
-
-- AUC for discriminatory power  
-- Recall on high-risk customers  
-- PD calibration stability  
-- Segment-level default rate profiles  
-- Approval rate impacts under model-driven cut-offs  
-- Exposure and EAD concentration metrics  
+| File / Folder | Description |
+|---------------|-------------|
+| `data/` | Raw and cleaned datasets (1M loan records) |
+| `notebooks/` | EDA, feature engineering, modelling, validation |
+| `src/` | Data pipeline, feature engineering, model training |
+| `deployment/streamlit_app/` | Streamlit scoring app |
+| `deployment/fastapi_app/` | FastAPI scoring service |
+| `dashboards/` | Power BI credit risk dashboard |
+| `sql/portfolio_analysis.sql` | SQL queries for risk and portfolio analytics |
+| `assets/` | Project banner and visuals |
+| `Dockerfile` | Container for cloud deployment |
 
 ---
 
-# 7. Dataset
+## 🧹 Data Preprocessing
 
-One million borrower-level applications containing demographic, financial, behavioural, and loan performance data.  
-Includes the target variable for supervised PD modelling.
-
----
-
-# 8. Exploratory Insights
-
-Key findings from EDA:
-
-- High default concentration in low-income and short-tenure groups  
-- Payment behaviour features strongly linked to PD  
-- Affordability ratios identified as major risk drivers  
-- Risk exposure concentrated in specific product groups  
-- Portfolio mix shifts highlight credit policy opportunities  
+- Removed duplicates and corrected inconsistent entries  
+- Handled missing values in income, employment, and loan attributes  
+- Normalised financial variables for improved model stability  
+- Capped extreme outliers using winsorisation  
+- Created risk-focused engineered features:
+  - Debt-service ratios  
+  - Repayment behaviour metrics  
+  - Utilisation trends  
+  - Affordability indicators  
+  - Temporal delinquency variables  
 
 ---
 
-# 9. Feature Engineering
+## 📈 Exploratory Data Analysis
 
-Risk-focused engineered features:
-
-- Normalised affordability and income measures  
-- Repayment consistency and delinquency flags  
-- Behavioural trend windows  
-- Utilisation and exposure indicators  
-- Loan-to-income and risk-weighted affordability ratios  
-- Temporal drift and stability signals  
+- 📊 Default rate distribution by income, tenure, and loan product  
+- 🔥 Correlation analysis of financial and behavioural variables  
+- 🧭 Segment-level exposure and NPL concentration  
+- 💳 Repayment and delinquency trend patterns  
+- 📉 Risk signals across borrower demographics  
 
 ---
 
-# 10. Model Development and Selection
+## 🤖 Modelling Approach
 
-Algorithms evaluated:
+### **Model Benchmarking**
+Four models were evaluated:
 
+- XGBoost  
+- LightGBM  
 - Random Forest  
-- XGBoost  
-- LightGBM  
-- Linear Regression baseline  
+- Linear Regression (baseline)  
 
-Optuna tuning improved:
+Metrics evaluated:
 
-- Model calibration  
-- Recall on minority class  
-- AUC lift  
-- Stability across folds  
+- AUC  
+- Precision/Recall on default class  
+- Calibration stability  
+- Uplift on high-risk segments  
 
-Final model: **XGBoost**, selected for superior lift and operational stability.
+### **Hyperparameter Tuning – Optuna**
+- Multi-trial tuning to maximise AUC  
+- Stability checks across folds  
+- Parameter optimisation for interpretability and robustness  
 
----
+### **Final Model**
+**XGBoost** selected for:
 
-# 11. Production Deployment
-
-## Streamlit Decisioning Tool  
-Used by credit analysts and branch officers.  
-Shows:
-
-- PD score  
-- Confidence interval  
-- Top behavioural drivers  
-
-## FastAPI Scoring Service  
-Dockerised service for:
-
-- Real-time scoring  
-- Digital channel integration  
-- Batch inference for risk teams  
-
-## AWS Deployment  
-Scalable, low-latency model inference aligned with enterprise system requirements.
+- Strong discriminatory power  
+- Stability across segments  
+- PD calibration reliability  
+- High uplift in high-risk identification  
 
 ---
 
-# 12. SQL Portfolio Analysis
+## 🟢 Streamlit App Overview
 
-Portfolio analytics layer includes:
+The Streamlit application enables:
 
-- Vintage and cohort analysis  
-- Exposure and EAD reporting  
-- Segment-level PD analysis  
-- Delinquency trend breakdowns  
-- Collections segmentation  
-- IFRS9 input support  
+- 🧍 **Individual client scoring**  
+- 📤 **CSV batch scoring for business teams**  
+- ✔️ **Probability of Default output**  
+- 🔑 **Key driver explanations for credit analysts**  
 
----
-
-# 13. Power BI Portfolio Dashboard
-
-Built for Credit, Risk, Finance, and Collections teams:
-
-- Default rate trends  
-- Exposure distribution by segment  
-- PD drift and stability  
-- High-risk customer flags  
-- Approval and decline patterns  
-- Portfolio mix insights  
-- Early warning indicators  
+This mirrors credit decision-support tools used by lending and risk teams in banks.
 
 ---
 
-# 14. Tech Stack
+## 🚀 Deployment
 
-- Python  
-- Pandas  
-- Scikit-learn  
-- XGBoost  
-- LightGBM  
-- Optuna  
-- SQL  
-- Streamlit  
-- FastAPI  
-- Docker  
-- AWS  
-- Power BI  
+### **FastAPI Service**
+- Dockerised API for real-time scoring  
+- Compatible with digital channels and internal credit systems  
+- Allows API-based scoring for automated approvals  
+
+### **AWS Cloud Deployment**
+- Containerised using Docker  
+- Supports scalable, low-latency model inference  
+- Ready for enterprise production environments  
 
 ---
 
-# 15. Folder Structure
+## 🧠 Business Impact
 
-project_root/
-│
-├── data/
-│   ├── raw/
-│   ├── processed/
-│
-├── notebooks/
-│   ├── 01_EDA.ipynb
-│   ├── 02_FeatureEngineering.ipynb
-│   ├── 03_ModelTraining.ipynb
-│   ├── 04_ModelValidation.ipynb
-│
-├── src/
-│   ├── data_pipeline.py
-│   ├── risk_features.py
-│   ├── model_training.py
-│   ├── optuna_tuning.py
-│   ├── inference_service.py
-│
-├── deployment/
-│   ├── streamlit_app/
-│   ├── fastapi_app/
-│   ├── Dockerfile
-│
-├── sql/
-│   ├── portfolio_analysis.sql
-│
-├── dashboards/
-│   ├── credit_risk_dashboard.pbix
-│
-└── README.md
+This solution supports:
 
+- More accurate credit approval decisions  
+- Stronger identification of high-risk applicants  
+- Improved Expected Credit Loss (ECL) accuracy  
+- Better collections targeting using PD outputs  
+- Reduction in approval error rates  
+- More consistent decisioning across channels  
+
+Industry impact benchmarks:
+
+- PD models improve approval efficiency by **15–20%**  
+- Reduce NPL inflows by **10–25%**  
+- Increase collections effectiveness with earlier segmentation  
+
+This aligns with KPIs across Credit Risk, Finance, Data Science, and Lending Operations.
 
 ---
 
-# 16. Future Enhancements
+## 🛠️ Tech Stack
 
-- SHAP interpretability for credit committees  
-- Automated model monitoring and retraining pipelines  
-- Drift detection and PD stability tracking  
-- Enterprise data warehouse integration  
-- Batch scoring for month-end IFRS9 processes  
+- **Python:** Pandas, NumPy, Scikit-Learn, XGBoost, LightGBM, Optuna  
+- **Database & Analytics:** SQL  
+- **Deployment:** Streamlit, FastAPI, Docker, AWS  
+- **Reporting:** Power BI  
+- **Versioning & Packaging:** joblib, pickle  
 
 ---
 
-# License  
-MIT License.
+## 📌 Future Enhancements
+
+- Add SHAP explainability for model governance  
+- Deploy Airflow for automated model monitoring  
+- Add drift detection for ongoing PD stability  
+- Integrate with enterprise data warehouse  
+- Build a challenger model for IFRS9 staging  
+
+---
