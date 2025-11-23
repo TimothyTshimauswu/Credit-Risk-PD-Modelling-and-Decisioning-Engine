@@ -9,7 +9,7 @@
 </h3>
 
 <p align="center">
-  A full end-to-end Probability of Default modelling and decisioning engine built on one million loan records. Designed for real lending environments to support credit approvals, reduce losses, and improve portfolio performance.
+  A full end-to-end Probability of Default modelling and decisioning engine built on 1M loan records. Designed for real lending environments to support credit approvals, reduce losses, and improve portfolio performance.
 </p>
 
 
