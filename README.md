@@ -175,15 +175,14 @@ Health check.
 
 #### `POST /predict`
 Returns:
+``json
 
-```json
-{
-  "Customer_ID": 1,
+  {"Customer_ID": 1,
   "Predicted_PD": 0.236,
   "Predicted_Class": 0,
-  "Risk_Band": "Low Risk"
-}
+  "Risk_Band": "Low Risk"}
 
+---
 ## 🚀 Deployment
 
 ### **FastAPI Service**
