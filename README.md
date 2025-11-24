@@ -41,37 +41,19 @@ This project replicates a real PD modelling and deployment workflow used in lend
 This system includes:
 
 ### **1. Model Development**
-- 1M+ loan applications processed  
-- Full exploratory and risk analysis  
-- Variable engineering aligned with credit-scorecard design  
-- Optuna hyperparameter tuning  
-- Benchmarking of four models  
-- Final production model: **Tuned XGBoost pipeline**
+The project processes more than one million loan applications. It includes exploratory analysis, credit-scorecard-style feature engineering, Optuna-based hyperparameter tuning, and benchmarking of four models. A tuned XGBoost pipeline is selected for production based on AUC, calibration stability, and uplift across high-risk segments.
 
 ### **2. Production Model Scoring (FastAPI)**
-- Feature engineering encoded server-side  
-- `/predict` scoring endpoint returning:
-  - PD (Probability of Default)  
-  - Binary default prediction  
-  - Risk band (Low, Medium, High Risk)  
+The FastAPI service applies all server-side feature engineering before scoring any request. The /predict endpoint returns three outputs: Probability of Default, a binary default prediction, and an assigned risk band. This mirrors how credit decisioning engines operate in real lending environments.  
 
 ### **3. Frontend Credit Scoring App (Streamlit)**
-- Business-facing scoring panel  
-- Single-customer scoring  
-- CSV batch scoring  
-- Full API integration  
-- Shows scoring payloads and outputs
+The Streamlit scoring interface is designed for credit analysts and business teams. It supports single-customer scoring, batch CSV scoring, and displays both the API payload and the scored results. This ensures transparency and aligns with audit and governance expectations.
 
 ### **4. Containerised Microservice Deployment**
-- FastAPI backend container  
-- Streamlit UI container  
-- Shared Docker network  
-- Orchestrated with Docker Compose
+The system is deployed using two containers: one for the FastAPI backend and one for the Streamlit UI. Both services run on a shared Docker network and are orchestrated through Docker Compose. This setup reflects modern production deployment patterns used in digital lending and risk systems.
 
 ### **5. Analytics & Reporting**
-- SQL portfolio analytics  
-- Power BI credit performance dashboard  
-- Exploratory analysis and behavioural insights
+Portfolio and behavioural insights are supported by SQL scripts and a Power BI dashboard. These tools help assess portfolio performance, default trends, affordability behaviour, and risk segmentation across borrower groups.
 
 ---
 
