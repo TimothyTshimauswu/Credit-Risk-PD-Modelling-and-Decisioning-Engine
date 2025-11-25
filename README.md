@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/project_banner.png" width="100%" alt="Credit Risk PD Modelling and Decisioning Engine Banner">
+  <img src="assets/project_banner.png" width="100%" alt="Credit Risk Management Systsem & Portfolio Analytics Banner">
 </p>
 
 <h1 align="center">Credit Risk PD Modelling and Decisioning Engine</h1>
@@ -11,13 +11,10 @@
 <p align="center">
   A complete end-to-end Probability of Default (PD) modelling and credit decisioning system built on 1,000,000+ retail loan records. 
   The solution includes model development, feature engineering, API deployment, containerised microservices, a business-facing scoring 
-  application, SQL portfolio analytics, and a Power BI dashboard for credit-risk monitoring.
+  application, SQL portfolio analytics, and a Power BI dashboard for credit-risk monitoring to improve lending decisions, reduce losses, and support portfolio analytics.
+
 </p>
 
----
-# Loan Default Risk Management System
-
-A full-stack credit-risk modeling and scoring pipeline I built to improve lending decisions, reduce losses, and support portfolio analytics.
 
 ## Executive Summary
 
