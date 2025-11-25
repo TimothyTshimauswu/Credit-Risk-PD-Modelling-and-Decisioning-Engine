@@ -186,7 +186,7 @@ It applies full feature engineering server-side and returns:
 Below is a screenshot of the live API running through Docker:
 
 <p align="center">
-  <img src="assets/FASTAPI_predict.png" width="85%" alt="FastAPI Predict Endpoint Screenshot">
+  <img src="assets/FASTAPI_prediction.png" width="85%" alt="FastAPI Predict Endpoint Screenshot">
 </p>
 Returns:
 ```json
