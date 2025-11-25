@@ -146,7 +146,7 @@ Chosen for:
 
 ---
 
-## 🟢 Streamlit Scoring UI
+## 🟢 Streamlit Scoring UI Deployment
 <p align="center">
   <img src="assets/streamlitapp.png" width="85%" alt="Streamlit Scoring UI">
   <br>
@@ -171,8 +171,6 @@ The Streamlit UI mirrors real credit decisioning front-ends:
 - Useful for governance & auditability  
 
 ---
-
-## 🚀 FastAPI Scoring Service
 
 ## 🚀 FastAPI Deployment
 
