@@ -174,13 +174,22 @@ The Streamlit UI mirrors real credit decisioning front-ends:
 
 ## 🚀 FastAPI Scoring Service
 
-### **Endpoints**
-#### `GET /health`
-Health check.
+## 🚀 FastAPI Deployment
 
-#### `POST /predict`
+The FastAPI scoring service exposes the production-ready `/predict` endpoint.  
+It applies full feature engineering server-side and returns:
+
+- Probability of Default (PD)  
+- Binary default prediction  
+- Assigned risk band  
+
+Below is a screenshot of the live API running through Docker:
+
+<p align="center">
+  <img src="assets/FASTAPI_predict.png" width="85%" alt="FastAPI Predict Endpoint Screenshot">
+</p>
 Returns:
-``json
+```json
 
   {"Customer_ID": 1,
   "Predicted_PD": 0.236,
@@ -188,12 +197,6 @@ Returns:
   "Risk_Band": "Low Risk"}
 
 ---
-## 🚀 Deployment
-
-### **FastAPI Service**
-- Dockerised API for real-time scoring  
-- Compatible with digital channels and internal credit systems  
-- Allows API-based scoring for automated approvals  
 
 ### **AWS Cloud Deployment**
 - Containerised using Docker  
