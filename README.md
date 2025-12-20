@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="assets/project_banner.png" width="100%" alt="Credit Risk Management Systsem & Portfolio Analytics Banner">
-</p>
 
 <h1 align="center">Credit Risk PD Modelling and Decisioning Engine</h1>
 
