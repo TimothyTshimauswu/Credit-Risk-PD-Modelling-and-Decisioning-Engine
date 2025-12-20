@@ -119,7 +119,7 @@ These analytics support conservative, baseline, and relaxed scenario testing.
 - AWS-hosted deployment  
 - Streamlit web app for underwriting and risk teams  
 
-## 🟢 Streamlit Scoring UI Deployment
+## Streamlit Scoring UI Deployment
 <p align="center">
   <img src="assets/streamlitapp.png" width="85%" alt="Streamlit Scoring UI">
   <br>
@@ -145,7 +145,7 @@ The Streamlit UI mirrors real credit decisioning front-ends:
 
 ---
 
-## 🚀 FastAPI Deployment
+## FastAPI Deployment
 
 The FastAPI scoring service exposes the production-ready `/predict` endpoint.  
 It applies full feature engineering server-side and returns:
