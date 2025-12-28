@@ -28,6 +28,7 @@
   application, SQL portfolio analytics, and a Power BI dashboard for credit-risk monitoring to improve lending decisions, reduce losses, and support portfolio analytics.
 
 </p>
+
 ![Project Architecture](assets/credit_risk_banner.png)  
 
 ## Executive Summary
