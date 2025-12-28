@@ -1,10 +1,27 @@
+# Credit Risk PD Modelling and Decisioning Engine
 
-<h1 align="center">Credit Risk PD Modelling and Decisioning Engine</h1>
+<div align="center">
 
-<h3 align="center">
-  XGBoost • Optuna • Feature Engineering • FastAPI Microservice • Streamlit UI • Docker • SQL • Power BI
-</h3>
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-Database-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![SAS](https://img.shields.io/badge/SAS-Analytics-1E90FF?style=for-the-badge)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML-FF6600?style=for-the-badge)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-EC2-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Optuna](https://img.shields.io/badge/Optuna-Hyperparameter%20Tuning-00B4D8?style=for-the-badge)
 
+![GitHub stars](https://img.shields.io/github/stars/TimothyTshimauswu/Credit-Risk-PD-Modelling-and-Decisioning-Engine?style=social)
+![GitHub forks](https://img.shields.io/github/forks/TimothyTshimauswu/Credit-Risk-PD-Modelling-and-Decisioning-Engine?style=social)
+
+**Production-Ready Credit Scoring Engine Achieving 87% Precision on 1M+ Loan Applications**
+
+[![View Repository](https://img.shields.io/badge/View-Repository-181717?style=for-the-badge&logo=github)](https://github.com/TimothyTshimauswu/Credit-Risk-PD-Modelling-and-Decisioning-Engine)
+[![Read Documentation](https://img.shields.io/badge/Read-Documentation-blue?style=for-the-badge)](https://github.com/TimothyTshimauswu/Credit-Risk-PD-Modelling-and-Decisioning-Engine#readme)
+
+</div>
 <p align="center">
   A complete end-to-end Probability of Default (PD) modelling and credit decisioning system built on 1,000,000+ retail loan records. 
   The solution includes model development, feature engineering, API deployment, containerised microservices, a business-facing scoring 
