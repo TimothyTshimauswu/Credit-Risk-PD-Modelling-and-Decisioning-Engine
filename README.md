@@ -51,7 +51,7 @@ Lending teams face long assessment cycles, inconsistent affordability checks, an
 
 I designed this project to answer four business questions:
 
-1. What is each applicant’s probability of default  
+1. What is each applicant's probability of default  
 2. How income, expenses, credit history, and behavioural factors influence risk  
 3. How approval and pricing rules should vary across risk segments  
 4. How portfolio exposure changes when underwriting rules are adjusted  
@@ -70,6 +70,7 @@ The goal is to support faster decisions, lower default risk, improve affordabili
 | `app/` | FastAPI scoring backend |
 | `streamlit scoring app/` | Streamlit user interface |
 | `sql/` | SQL analytics for credit portfolio insights |
+| `sas/` | SAS programs for IFRS 9 ECL statistical reporting |
 | `Power BI credit dashboard/` | Power BI visuals and reporting |
 | `Dockerfile` | API Docker container |
 | `streamlit.Dockerfile` | Streamlit Docker container |
@@ -134,6 +135,39 @@ These analytics support conservative, baseline, and relaxed scenario testing.
 - AWS-hosted deployment  
 - Streamlit web app for underwriting and risk teams  
 
+---
+
+## IFRS 9 ECL Impairment Forecasting
+
+The PD model serves as the foundation for IFRS 9 Expected Credit Loss provisioning. I developed SAS programs that align to regulatory reporting standards for impairment forecasting.
+
+### SAS Statistical Reporting
+
+The `sas/` folder contains production-ready programs for:
+
+| Program | Purpose |
+|---------|---------|
+| `00_pd_macros.sas` | Reusable macros for WoE, Gini, KS, PSI calculations |
+| `01_pd_model_development.sas` | Feature engineering, logistic regression, scorecard calibration |
+| `02_ifrs9_ecl_staging.sas` | Stage allocation (SICR triggers), ECL calculation, scenario analysis |
+| `03_model_monitoring.sas` | Backtesting, PSI monitoring, model health dashboard |
+
+### Stage Allocation Logic
+
+- **Stage 1**: Performing accounts with no SICR – 12-month ECL
+- **Stage 2**: SICR triggered (PD increase >2x or absolute floor >5%) – Lifetime ECL  
+- **Stage 3**: Credit impaired or in default – Lifetime ECL
+
+### SAS Output Examples
+
+![SAS Decile Analysis](assets/sas_decile_analysis.png)
+*Decile analysis showing model discrimination and KS statistic*
+
+![SAS ECL Stage Summary](assets/sas_ecl_stage_summary.png)
+*ECL provision breakdown by IFRS 9 stage with scenario weighting*
+
+---
+
 ## Streamlit Scoring UI Deployment
 <p align="center">
   <img src="assets/streamlitapp.png" width="85%" alt="Streamlit Scoring UI">
@@ -182,6 +216,7 @@ Returns:
   "Predicted_Class": 0,
   "Risk_Band": "Low Risk"}
 
+
 ---
 
 ### **AWS Cloud Deployment**
@@ -193,6 +228,7 @@ Returns:
 ## 🛠️ Tech Stack
 
 - **Python:** Pandas, NumPy, Scikit-Learn, XGBoost, LightGBM, Optuna  
+- **SAS:** PROC LOGISTIC, PROC SQL, ODS reporting for IFRS 9 compliance
 - **Database & Analytics:** SQL  
 - **Deployment:** Streamlit, FastAPI, Docker, AWS  
 - **Reporting:** Power BI  
@@ -209,7 +245,8 @@ The final system improves both predictive accuracy and operational efficiency:
 3. High-performance PD predictions strengthen underwriting consistency  
 4. Management can quantify the impact of policy changes before deployment  
 5. Consistent PD buckets support better risk governance and capital planning  
-6. Customer-level explanations increase transparency across the credit value chain  
+6. Customer-level explanations increase transparency across the credit value chain
+7. IFRS 9 stage allocation supports regulatory-compliant provisioning  
 
 These improvements reduce expected losses, improve affordability checks, and speed up customer decision times.
 
@@ -220,7 +257,8 @@ These improvements reduce expected losses, improve affordability checks, and spe
 - Credit Underwriting uses the FastAPI endpoint for instant PD scoring  
 - Risk Analysts use dashboards to track exposure and identify rising-risk groups  
 - Collections teams prioritise accounts using PD buckets  
-- Management uses scenario simulations for risk appetite and pricing decisions  
+- Management uses scenario simulations for risk appetite and pricing decisions
+- Finance teams use SAS outputs for IFRS 9 ECL provisioning  
 
 ---
 
@@ -239,8 +277,4 @@ These improvements reduce expected losses, improve affordability checks, and spe
 2. Develop early-warning signals for existing customers  
 3. Expand the engine across multiple credit products  
 4. Deploy on AWS Lambda or ECS for scalable workloads
-
-
-
-
-
+5. Integrate LGD and EAD models for complete ECL framework
